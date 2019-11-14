@@ -1,0 +1,106 @@
+﻿<Window x:Class="RS3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RS3"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="RS3 Nintendo Switch" Height="600" Width="800">
+    <Window.DataContext>
+        <local:ViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <DockPanel>
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="_File">
+                    <MenuItem Header="_Open" Click="MenuItemFileOpen_Click"/>
+                    <MenuItem Header="_Save" Click="MenuItemFileSave_Click"/>
+                    <MenuItem Header="Save_As" Click="MenuItemFileSaveAs_Click"/>
+                    <MenuItem Header="_Exit"/>
+                </MenuItem>
+            </Menu>
+            <TabControl>
+                <TabItem Header="Basic">
+                    
+                </TabItem>
+                <TabItem Header="Charcter">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <ListBox Name="ListBoxPlayers" ItemsSource="{Binding SaveData.Players}" DisplayMemberPath="_name"/>
+                        <Grid Grid.Column="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition Height="10*"/>
+                            </Grid.RowDefinitions>
+                            <Label Content="HP"/>
+                            <TextBox Grid.Column="1" Text="{Binding ElementName=ListBoxPlayers, Path=SelectedItem._hp, UpdateSourceTrigger=PropertyChanged}"/>
+                            <Label Grid.Row="1" Content="HP Max"/>
+                            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding ElementName=ListBoxPlayers, Path=SelectedItem._hp_max, UpdateSourceTrigger=PropertyChanged}"/>
+                            <Label Grid.Row="2" Content="LP"/>
+                            <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding ElementName=ListBoxPlayers, Path=SelectedItem._lp, UpdateSourceTrigger=PropertyChanged}"/>
+                            <Label Grid.Row="3" Content="LP Max"/>
+                            <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding ElementName=ListBoxPlayers, Path=SelectedItem._lp_max, UpdateSourceTrigger=PropertyChanged}"/>
+                            <Label Grid.Row="4" Content="Waza"/>
+                            <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding ElementName=ListBoxPlayers, Path=SelectedItem._waza_p, UpdateSourceTrigger=PropertyChanged}"/>
+                            <Label Grid.Row="5" Content="Waza Max"/>
+                            <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding ElementName=ListBoxPlayers, Path=SelectedItem._waza_p_max, UpdateSourceTrigger=PropertyChanged}"/>
+                            <Label Grid.Row="6" Content="Jyutu"/>
+                            <TextBox Grid.Row="6" Grid.Column="1" Text="{Binding ElementName=ListBoxPlayers, Path=SelectedItem._jyutu_p, UpdateSourceTrigger=PropertyChanged}"/>
+                            <Label Grid.Row="7" Content="Jyutu Max"/>
+                            <TextBox Grid.Row="7" Grid.Column="1" Text="{Binding ElementName=ListBoxPlayers, Path=SelectedItem._jyutu_p_max, UpdateSourceTrigger=PropertyChanged}"/>
+                        </Grid>
+                        <TabControl Grid.Column="2">
+                            <TabItem Header="Waza">
+                                <StackPanel>
+                                    <StackPanel.Resources>
+                                        <local:WazaIDConverter x:Key="WazaIDConverter"/>
+                                    </StackPanel.Resources>
+                                    <ComboBox ItemsSource="{Binding Info.Waza}" 
+                                              SelectedIndex="{Binding ElementName=ListBoxPlayers, Path=SelectedItem._waza_equip[0], Converter={StaticResource WazaIDConverter}}"
+                                              DisplayMemberPath="Name"/>
+                                    <ComboBox ItemsSource="{Binding Info.Waza}" 
+                                              SelectedIndex="{Binding ElementName=ListBoxPlayers, Path=SelectedItem._waza_equip[1], Converter={StaticResource WazaIDConverter}}"
+                                              DisplayMemberPath="Name"/>
+                                    <ComboBox ItemsSource="{Binding Info.Waza}" 
+                                              SelectedIndex="{Binding ElementName=ListBoxPlayers, Path=SelectedItem._waza_equip[2], Converter={StaticResource WazaIDConverter}}"
+                                              DisplayMemberPath="Name"/>
+                                    <ComboBox ItemsSource="{Binding Info.Waza}" 
+                                              SelectedIndex="{Binding ElementName=ListBoxPlayers, Path=SelectedItem._waza_equip[3], Converter={StaticResource WazaIDConverter}}"
+                                              DisplayMemberPath="Name"/>
+                                    <ComboBox ItemsSource="{Binding Info.Waza}" 
+                                              SelectedIndex="{Binding ElementName=ListBoxPlayers, Path=SelectedItem._waza_equip[4], Converter={StaticResource WazaIDConverter}}"
+                                              DisplayMemberPath="Name"/>
+                                    <ComboBox ItemsSource="{Binding Info.Waza}" 
+                                              SelectedIndex="{Binding ElementName=ListBoxPlayers, Path=SelectedItem._waza_equip[5], Converter={StaticResource WazaIDConverter}}"
+                                              DisplayMemberPath="Name"/>
+                                    <ComboBox ItemsSource="{Binding Info.Waza}" 
+                                              SelectedIndex="{Binding ElementName=ListBoxPlayers, Path=SelectedItem._waza_equip[6], Converter={StaticResource WazaIDConverter}}"
+                                              DisplayMemberPath="Name"/>
+                                    <ComboBox ItemsSource="{Binding Info.Waza}" 
+                                              SelectedIndex="{Binding ElementName=ListBoxPlayers, Path=SelectedItem._waza_equip[7], Converter={StaticResource WazaIDConverter}}"
+                                              DisplayMemberPath="Name"/>
+                                </StackPanel>
+                            </TabItem>
+                        </TabControl>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+        </DockPanel>
+    </Grid>
+</Window>
