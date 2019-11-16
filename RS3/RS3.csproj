@@ -59,6 +59,7 @@
     </ApplicationDefinition>
     <Compile Include="ILineAnalysis.cs" />
     <Compile Include="Info.cs" />
+    <Compile Include="ItemIDConverter.cs" />
     <Compile Include="NameValueInfo.cs" />
     <Compile Include="SaveData.cs" />
     <Compile Include="ViewModel.cs" />

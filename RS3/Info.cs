@@ -7,6 +7,7 @@ namespace RS3
 	{
 		private static Info me;
 		public List<NameValueInfo> Waza { get; private set; } = new List<NameValueInfo>();
+		public List<NameValueInfo> Item { get; private set; } = new List<NameValueInfo>();
 
 		private Info() { }
 
@@ -38,6 +39,7 @@ namespace RS3
 		private void Init()
 		{
 			AppendList("info\\waza.txt", Waza);
+			AppendList("info\\item.txt", Item);
 		}
 
 		private void AppendList<Type>(String filename, List<Type> items)

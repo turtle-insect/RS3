@@ -133,7 +133,7 @@ namespace RS3
 		[DataMember]
 		public ObservableCollection<int> _waza_equip { get; set; }
 		[DataMember]
-		public List<int> _jyutu_equip { get; set; }
+		public ObservableCollection<int> _jyutu_equip { get; set; }
 		[DataMember]
 		public int _weapon0 { get; set; }
 		[DataMember]

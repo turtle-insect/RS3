@@ -97,6 +97,37 @@
                                               DisplayMemberPath="Name"/>
                                 </StackPanel>
                             </TabItem>
+                            <TabItem Header="Equipment">
+                                <TabItem.Resources>
+                                    <local:ItemIDConverter x:Key="ItemIDConverter"/>
+                                </TabItem.Resources>
+                                <StackPanel>
+                                    <ComboBox ItemsSource="{Binding Info.Item}"
+                                              SelectedIndex="{Binding ElementName=ListBoxPlayers, Path=SelectedItem._weapon0, Converter={StaticResource ItemIDConverter}}"
+                                              DisplayMemberPath="Name"/>
+                                    <ComboBox ItemsSource="{Binding Info.Item}"
+                                              SelectedIndex="{Binding ElementName=ListBoxPlayers, Path=SelectedItem._weapon1, Converter={StaticResource ItemIDConverter}}"
+                                              DisplayMemberPath="Name"/>
+                                    <ComboBox ItemsSource="{Binding Info.Item}"
+                                              SelectedIndex="{Binding ElementName=ListBoxPlayers, Path=SelectedItem._weapon2, Converter={StaticResource ItemIDConverter}}"
+                                              DisplayMemberPath="Name"/>
+                                    <ComboBox ItemsSource="{Binding Info.Item}"
+                                              SelectedIndex="{Binding ElementName=ListBoxPlayers, Path=SelectedItem._weapon3, Converter={StaticResource ItemIDConverter}}"
+                                              DisplayMemberPath="Name"/>
+                                    <ComboBox ItemsSource="{Binding Info.Item}"
+                                              SelectedIndex="{Binding ElementName=ListBoxPlayers, Path=SelectedItem._armor0, Converter={StaticResource ItemIDConverter}}"
+                                              DisplayMemberPath="Name"/>
+                                    <ComboBox ItemsSource="{Binding Info.Item}"
+                                              SelectedIndex="{Binding ElementName=ListBoxPlayers, Path=SelectedItem._armor1, Converter={StaticResource ItemIDConverter}}"
+                                              DisplayMemberPath="Name"/>
+                                    <ComboBox ItemsSource="{Binding Info.Item}"
+                                              SelectedIndex="{Binding ElementName=ListBoxPlayers, Path=SelectedItem._armor2, Converter={StaticResource ItemIDConverter}}"
+                                              DisplayMemberPath="Name"/>
+                                    <ComboBox ItemsSource="{Binding Info.Item}"
+                                              SelectedIndex="{Binding ElementName=ListBoxPlayers, Path=SelectedItem._armor3, Converter={StaticResource ItemIDConverter}}"
+                                              DisplayMemberPath="Name"/>
+                                </StackPanel>
+                            </TabItem>
                         </TabControl>
                     </Grid>
                 </TabItem>
