@@ -57,6 +57,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CharacterIDConverter.cs" />
     <Compile Include="ILineAnalysis.cs" />
     <Compile Include="Info.cs" />
     <Compile Include="ItemIDConverter.cs" />

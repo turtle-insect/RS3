@@ -22,7 +22,21 @@
             </Menu>
             <TabControl>
                 <TabItem Header="Basic">
-                    
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="5"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition Height="16*"/>
+                        </Grid.RowDefinitions>
+                        <Label Content="party_money"/>
+                        <TextBox Grid.Column="1" Text="{Binding SaveData.Party._party_money, UpdateSourceTrigger=PropertyChanged}"/>
+                    </Grid>
                 </TabItem>
                 <TabItem Header="Charcter">
                     <Grid>
@@ -130,6 +144,63 @@
                             </TabItem>
                         </TabControl>
                     </Grid>
+                </TabItem>
+                <TabItem Header="Party">
+                    <TabItem.Resources>
+                        <local:CharacterIDConverter x:Key="CharacterIDConverter"/>
+                    </TabItem.Resources>
+                    <StackPanel>
+                        <Label Content="party_number"/>
+                        <TextBox Text="{Binding SaveData.Party._party_number, UpdateSourceTrigger=PropertyChanged}"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel>
+                                <Label Content="tsuikajun"/>
+                                <ComboBox ItemsSource="{Binding Info.Character}"
+                                      SelectedIndex="{Binding SaveData.Party._tsuikajun[0], Converter={StaticResource CharacterIDConverter}}"
+                                      DisplayMemberPath="Name"/>
+                                <ComboBox ItemsSource="{Binding Info.Character}"
+                                      SelectedIndex="{Binding SaveData.Party._tsuikajun[1], Converter={StaticResource CharacterIDConverter}}"
+                                      DisplayMemberPath="Name"/>
+                                <ComboBox ItemsSource="{Binding Info.Character}"
+                                      SelectedIndex="{Binding SaveData.Party._tsuikajun[2], Converter={StaticResource CharacterIDConverter}}"
+                                      DisplayMemberPath="Name"/>
+                                <ComboBox ItemsSource="{Binding Info.Character}"
+                                      SelectedIndex="{Binding SaveData.Party._tsuikajun[3], Converter={StaticResource CharacterIDConverter}}"
+                                      DisplayMemberPath="Name"/>
+                                <ComboBox ItemsSource="{Binding Info.Character}"
+                                      SelectedIndex="{Binding SaveData.Party._tsuikajun[4], Converter={StaticResource CharacterIDConverter}}"
+                                      DisplayMemberPath="Name"/>
+                                <ComboBox ItemsSource="{Binding Info.Character}"
+                                      SelectedIndex="{Binding SaveData.Party._tsuikajun[5], Converter={StaticResource CharacterIDConverter}}"
+                                      DisplayMemberPath="Name"/>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1">
+                                <Label Content="narabi"/>
+                                <ComboBox ItemsSource="{Binding Info.Character}"
+                                      SelectedIndex="{Binding SaveData.Party._narabi[0], Converter={StaticResource CharacterIDConverter}}"
+                                      DisplayMemberPath="Name"/>
+                                <ComboBox ItemsSource="{Binding Info.Character}"
+                                      SelectedIndex="{Binding SaveData.Party._narabi[1], Converter={StaticResource CharacterIDConverter}}"
+                                      DisplayMemberPath="Name"/>
+                                <ComboBox ItemsSource="{Binding Info.Character}"
+                                      SelectedIndex="{Binding SaveData.Party._narabi[2], Converter={StaticResource CharacterIDConverter}}"
+                                      DisplayMemberPath="Name"/>
+                                <ComboBox ItemsSource="{Binding Info.Character}"
+                                      SelectedIndex="{Binding SaveData.Party._narabi[3], Converter={StaticResource CharacterIDConverter}}"
+                                      DisplayMemberPath="Name"/>
+                                <ComboBox ItemsSource="{Binding Info.Character}"
+                                      SelectedIndex="{Binding SaveData.Party._narabi[4], Converter={StaticResource CharacterIDConverter}}"
+                                      DisplayMemberPath="Name"/>
+                                <ComboBox ItemsSource="{Binding Info.Character}"
+                                      SelectedIndex="{Binding SaveData.Party._narabi[5], Converter={StaticResource CharacterIDConverter}}"
+                                      DisplayMemberPath="Name"/>
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
                 </TabItem>
             </TabControl>
         </DockPanel>
