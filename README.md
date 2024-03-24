@@ -1,3 +1,5 @@
+![DL Count](https://img.shields.io/github/downloads/turtle-insect/RS3/total.svg)
+
 # 概要
 Switch RS3(ロマサガ3)のセーブデータ編集Tool
 
